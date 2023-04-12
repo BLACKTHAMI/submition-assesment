@@ -52,7 +52,7 @@ The Nginx configuration can be found in the nginx directory. The nginx.conf file
 
 The MongoDB configuration can be found in the mongo directory. The mongo-init.js file contains the initialization script for the MongoDB database.
 
-#* Testing
+# Testing
 To test the application, you can use the following curl command:
 
 [ curl -k https://localhost/api/myip/ ]
