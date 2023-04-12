@@ -2,7 +2,7 @@
 
 This is a basic Python web application that serves an HTTP endpoint that returns the client’s IP address and an indication of the last time a request was received from that client IP address. The application makes use of a MongoDB database to record the timestamp of the last HTTP request from each client IP address. The application lives behind a Nginx reverse proxy that forwards all HTTP requests starting with /api/ to the Python backend application. SSL support over TLS 1.2 is enabled in the reverse proxy.
 
-In addition, a simple frontend application using React has been included to display the client IP address and last request time.
+In addition, a simple frontend application using HTML has been included to display the client IP address and last request time.
 
 The application, database, and reverse proxy are all deployed using Docker Compose.
 
@@ -61,7 +61,7 @@ This will return the client IP address and the timestamp of the last request, or
 
 # Credits
 
-This application was created by *[THAMISANQA]
+This application was created by [THAMISANQA]
 
 
 
