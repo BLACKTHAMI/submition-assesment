@@ -1,0 +1,20 @@
+version: "3"
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_BASE_URL=http://api:8000
+    depends_on:
+      - api
+  api:
+    image: my-flask-app
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGODB_USERNAME=myuser
+      - MONGODB_PASSWORD=mypassword
+      - MONGODB_DATABASE=mydatabase
+      - MONGODB_COLLECTION=mycollection
+      - MONGODB_HOST=mongodb
