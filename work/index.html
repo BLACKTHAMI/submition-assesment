@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyIP Frontend</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>MyIP Frontend</h1>
+    <p>Your client's IP address is: <span id="ip-address"></span></p>
+    <p>Your previous/last request was on: <span id="last-request"></span></p>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "/api/myip/",
+                type: "GET",
+                dataType: "json",
+                success: function(response) {
+                    $("#ip-address").text(response.ip_address);
+                    $("#last-request").text(response.last_request);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                    alert("Error retrieving IP address");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
