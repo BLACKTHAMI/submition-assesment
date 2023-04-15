@@ -31,4 +31,9 @@ This will start the application and a reverse proxy (Nginx) with SSL support ove
 
 You can access the application by visiting https://localhost in your web browser.
 
+additionally i had ran into some issues with my dockerfile when trying to install  supervisord. 
+
+- A work around was to Start Nginx and Flask app using a startup script and  creating a script file named startup.sh which started using gunicorn, which is a commonly used Python web server. The wsgi:app argument tells gunicorn to look for a Flask app in a file called wsgi.py (or wsgi/__init__.py) in the root directory of the project. You would need to create this file and define your Flask app in it.
+
+With this setup, you can build and run the Docker image as usual, and Nginx and the Flask app should start up and be accessible on the exposed ports.
 
