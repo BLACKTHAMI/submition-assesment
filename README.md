@@ -8,60 +8,27 @@ The application, database, and reverse proxy are all deployed using Docker Compo
 
 ## Requirements
 
-Docker
-Docker Compose
+Installation and Setup
+To use the application, you will need to have Python and Docker installed on your machine. You will also need to have a MongoDB instance set up with a database and collection for storing IP addresses and timestamps.
 
-## *Getting Started
-
-Clone this repository to your local machine.
-
-git clone https://github.com/your-username/basic-python-web-application.git
-
-Navigate to the root directory of the project.
+To install the Python dependencies for the application, navigate to the root directory of the project and run the following command:
 
 
-cd basic-python-web-application
+    pip install -r requirements.txt
 
-Build and start the Docker containers.
+To set up the application, create a file called .env in the root directory of the project with the following contents:
 
-docker-compose up --build
+    CONNECTION_LINK=<your MongoDB connection link here>
 
-Once the containers are up and running, you can access the application at https://localhost/api/myip/ in your web browser. You should see the client IP address and the timestamp of the last request, or a message indicating that this is the first request from the client.
+Replace <your MongoDB connection link here> with the connection link to your MongoDB instance.REMEMBER TO INCLUDE YOUR PASSWORD AND YOUR USERNAME IS ON THE CONNECTION LINK.
 
-To stop the Docker containers, use Ctrl-C to stop the running process.
 
-## Configuration
+Once you have set up your MongoDB instance and created the .env file, you can start the application using Docker by running the following command:
 
-# Environment Variables
+- docker-compose up
 
-The following environment variables can be set in the .env file:
+This will start the application and a reverse proxy (Nginx) with SSL support over TLS 1.2 only.
 
-* MONGO_INITDB_ROOT_USERNAME: The username for the MongoDB database.
-
-* MONGO_INITDB_ROOT_PASSWORD: The password for the MongoDB database.
-
-* MONGO_DB: The name of the MongoDB database to use.
-
-* MONGO_COLLECTION: The name of the MongoDB collection to use.
-
-## Nginx Configuration
-
-The Nginx configuration can be found in the nginx directory. The nginx.conf file contains the SSL configuration for the reverse proxy.
-
-# MongoDB Configuration
-
-The MongoDB configuration can be found in the mongo directory. The mongo-init.js file contains the initialization script for the MongoDB database.
-
-# Testing
-To test the application, you can use the following curl command:
-
-[ curl -k https://localhost/api/myip/ ]
-
-This will return the client IP address and the timestamp of the last request, or a message indicating that this is the first request from the client.
-
-# Credits
-
-This application was created by [THAMISANQA]
-
+You can access the application by visiting https://localhost in your web browser.
 
 
